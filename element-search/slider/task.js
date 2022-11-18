@@ -4,43 +4,27 @@ let nextArrow = document.querySelector(".slider__arrow_next");
 let prevArrow = document.querySelector(".slider__arrow_prev");
 let sliderDots = [...document.querySelectorAll('.slider__dot')];
 
-nextArrow.onclick = f => {
-    slider[index].classList.remove('slider__item_active');
-    sliderDots[index].classList.remove('slider__dot_active');
-
-    if (index === slider.length-1){
-        index = 0;
-    } else{
-        ++index;
-    }
-
+function imgInstall (){
+    slider.forEach(e => e.classList.remove("slider__item_active"));
+    sliderDots.forEach(e => e.classList.remove("slider__dot_active"));
     slider[index].classList.add('slider__item_active');
     sliderDots[index].classList.add('slider__dot_active');
+}
+
+nextArrow.onclick = f => {
+    (index === slider.length-1 ? index = 0 : ++index);
+    imgInstall();
 };
 
 prevArrow.onclick = f => {
-    slider[index].classList.remove('slider__item_active');
-    sliderDots[index].classList.remove('slider__dot_active');
-
-    if (index === 0){
-        index = slider.length-1;
-    } else{
-        --index;
-    }
-    slider[index].classList.add('slider__item_active');
-    sliderDots[index].classList.add('slider__dot_active');
+    (index === 0 ? index = slider.length-1 : --index);
+    imgInstall();
 };
 
 document.addEventListener('click', e => {
     if(e.target.closest(".slider__dots")){
-
-        slider[index].classList.remove('slider__item_active');
-        sliderDots[index].classList.remove('slider__dot_active');
-
         index = sliderDots.indexOf(e.target);
-
-        slider[index].classList.add('slider__item_active');
-        sliderDots[index].classList.add('slider__dot_active');
+        imgInstall();
     }
 });
 

@@ -5,8 +5,8 @@ let btnsClose = [...document.querySelectorAll('.modal__close')];
 btnsClose.forEach(e => {
  e.onclick = f => {
   let modalWindows = [...document.querySelectorAll('.modal')];
-  modalWindows.forEach(modal_window => {
-   modal_window.style.display = 'none';
+  modalWindows.forEach(modalWindow => {
+   modalWindow.classList.remove("modal_active");
   })
  }
 })
