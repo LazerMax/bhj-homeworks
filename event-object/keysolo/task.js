@@ -18,8 +18,8 @@ class Game {
 
   registerEvents() {
 
-    addEventListener("keyup", function (key){
-      (key === this.currentSymbol ? this.success() : this.fail());
+    addEventListener("keyup",  event => {b
+      (event.key === this.currentSymbol.textContent ? this.success() : this.fail());
 
   });
 
