@@ -18,7 +18,7 @@ class Game {
 
   registerEvents() {
 
-    addEventListener("keyup",  event => {b
+    addEventListener("keyup",  event => {
       (event.key === this.currentSymbol.textContent ? this.success() : this.fail());
 
   });
