@@ -2,8 +2,8 @@ let bookFontSizeControl = [...document.querySelectorAll('.font-size')];
 let bookColorControl = [...document.querySelectorAll('.color')];
 let book = document.querySelector('.book');
 let fontSizeBlock = document.querySelector(".book__control_font-size");
-let colorBlock = document.querySelector(".book__control_font-color");
-let backgroundBlock = document.querySelector(".book__control_font-background");
+let colorBlock = document.querySelector(".book__control_color");
+let backgroundBlock = document.querySelector(".book__control_background");
 let index;
 
 function changeSizeText(){
@@ -22,20 +22,27 @@ function changeSizeText(){
 }
 
 function changeColor(determinant){
-    if (index === 0){
+
+    let whiteColor = "-white";
+
+    if(determinant === "color"){
+        whiteColor += "smoke";
+    }
+
+    if (index === 0 || index === 3){
         book.classList.remove("book_"+determinant+"-gray");
-        book.classList.remove("book_"+determinant+"-whitesmoke");
+        book.classList.remove("book_"+determinant+whiteColor);
         book.classList.add("book_"+determinant+"-black");
     }
-    if (index === 1){
+    if (index === 1 || index === 4){
         book.classList.remove("book_"+determinant+"r-black");
-        book.classList.remove("book_"+determinant+"-whitesmoke");
+        book.classList.remove("book_"+determinant+whiteColor);
         book.classList.add("book_"+determinant+"-gray");
     }
-    if(index === 2){
+    if(index === 2|| index === 5){
         book.classList.remove("book_"+determinant+"-black");
         book.classList.remove("book_"+determinant+"-gray");
-        book.classList.add("book_"+determinant+"-whitesmoke");
+        book.classList.add("book_"+determinant+whiteColor);
     }
 }
 
@@ -70,8 +77,9 @@ backgroundBlock.addEventListener('click', e => {
         e.preventDefault();
         if (!(menu.querySelector(".color_active"))) {
             index = bookColorControl.indexOf(menu);
+            console.log(index);
             bookColorControl.forEach(elMenu => elMenu.classList.remove("color_active"));
             menu.classList.add("color_active");
-            changeColor("color");
+            changeColor("bg");
         }
     }});
