@@ -7,6 +7,7 @@ chatWidget.addEventListener("click", e =>{
 });
 
 chatWidget.addEventListener("keyup",  event => {
+    let questionTime;
     if(event.key === "Enter"){
         let userMassage = document.getElementById("chat-widget__input").value;
         if(userMassage != "") {
@@ -50,8 +51,26 @@ chatWidget.addEventListener("keyup",  event => {
                 scrollTop: $('.chat-widget__messages-container')[0].scrollHeight
             });
 
+             questionTime = setTimeout(() => {
+                messages.innerHTML += `
+                    <div class="message">
+                        <div class="message__time last_time"></div>
+                        <div class="message__text last_massage">
+                        </div>
+                        </div>`;
+
+                lastTime = document.querySelector(".last_time");
+                lastMassage = document.querySelector(".last_massage");
+
+                lastTime.innerHTML = h + ":" + m;
+                lastMassage.innerHTML = "Вы ещё здесь?";
+                lastTime.classList.remove("last_time");
+                lastMassage.classList.remove("last_massage");
+            }, 10000);
+
         }
     }
+    clearTimeout(questionTime);
 });
 
 function getWord() {
