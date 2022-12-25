@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -21,7 +22,7 @@
     <main class="content">
         <div class="card">
             <progress value="0.0" id="progress"></progress>
-            <form action="https://netology-slow-rest.herokuapp.com/upload.php" id="form">
+            <form action="https://netology-slow-rest.herokuapp.com/upload.php" id="form" name="upload">
                 <input type="file" name="file" id="file" required>
                 <label for="file">                                  
                     <span class="input__wrapper input__wrapper-button">Выберите файл</span>
@@ -29,6 +30,7 @@
                 </label>                
                 <button id="send">Отправить</button>
             </form>
+
             <script src="main.js"></script>
             <script src="task.js"></script>
         </div>

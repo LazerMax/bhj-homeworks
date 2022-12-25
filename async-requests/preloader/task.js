@@ -15,8 +15,8 @@ window.onload = () => {
     }
 }
 
-xhr.addEventListener("readystatechange", () => {
-    if (xhr.readyState === xhr.DONE) {
+xhr.addEventListener("load", () => {
+    if (xhr.readyState === xhr.DONE && xhr.status === 200) {
         let myObj = JSON.parse(xhr.responseText).response.Valute;
         let newObj = {};
 
@@ -32,7 +32,6 @@ xhr.addEventListener("readystatechange", () => {
         } else{
             $('.oldElement').remove();
         }
-
         localStorage.setItem("itemsArray", JSON.stringify(newObj));
     }
     });
