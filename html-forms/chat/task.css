@@ -37,6 +37,11 @@
   border-radius: 20px 0 0 0;
 }
 
+.btn_clear{
+  background-color: #0066ff;
+  color: white;
+}
+
 
 .message {
   margin-bottom: 10px;

@@ -27,7 +27,7 @@ xhr.addEventListener("load", () => {
             $('.poll__answer').remove();
             let stat = JSON.parse(xhr.responseText).stat;
             stat.forEach(el => {
-                 let template = `<div><div class="answer">${el.answer}: ${el.votes}%</div>`;
+                 let template = `<div class="answer">${el.answer}: ${el.votes}%</div>`;
              pollAnswers.insertAdjacentHTML("afterEnd", template);
              
             })     
