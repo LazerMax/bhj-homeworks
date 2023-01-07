@@ -8,9 +8,7 @@ function  saveText(){
 }
 
 window.onload = () => {
-    if (localStorage.getItem("itemsArray")) {
         textArea.textContent = localStorage.getItem("itemsArray");
-    }
 }
 
 textArea.addEventListener("keyup", event => {saveText()});
